@@ -15,6 +15,7 @@ app.get("/webhook", (req, res) => {
 app.post("/webhook", (req, res) => {
   console.log(req.body);
   if (req.body.object === "page") {
+    console.log("it's page");
     req.body.entry.forEach((entry) => {
       entry.messaging.forEach((event) => {
         if (event.message && event.message.text) {
@@ -24,6 +25,7 @@ app.post("/webhook", (req, res) => {
     });
     res.status(200).end();
   }
+  console.log("message sented");
 });
 
 const request = require("request");
@@ -31,6 +33,8 @@ const request = require("request");
 function sendMessage(event) {
   let sender = event.sender.id;
   let text = event.message.text;
+
+  console.log("send message");
 
   request(
     {
