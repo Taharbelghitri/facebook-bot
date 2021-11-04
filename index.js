@@ -4,11 +4,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extends: true }));
 
 app.get("/webhook", (req, res) => {
-  if (req.query["hub.mode"] && req.query["hub.verify_token"] === "tuxedo_cat") {
-    res.status(200).send(req.query["hub.challenge"]);
-  } else {
-    res.status(403).end();
-  }
+  //   if (req.query["hub.mode"] && req.query["hub.verify_token"] === "tuxedo_cat") {
+  //     res.status(200).send(req.query["hub.challenge"]);
+  //   } else {
+  //     res.status(403).end();
+  //   }
+  res.send("welcome");
 });
 
 /* Handling all messenges */
