@@ -33,7 +33,7 @@ const request = require("request");
 function sendMessage(event) {
   let sender = event.sender.id;
   let text = event.message.text;
-
+  console.log("sender : " + sender);
   console.log("send message");
 
   request(
