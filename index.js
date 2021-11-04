@@ -13,7 +13,7 @@ app.get("/webhook", (req, res) => {
 
 /* Handling all messenges */
 app.post("/webhook", (req, res) => {
-  console.log(req.body);
+  console.log("req ... \n" + req.body);
   if (req.body.object === "page") {
     console.log("it's page");
     req.body.entry.forEach((entry) => {
