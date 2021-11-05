@@ -40,8 +40,7 @@ function sendMessage(event) {
       url: "https://graph.facebook.com/v7.0/me/messages/",
       qs: {
         access_token:
-          "EAANZBQwqZAZA3ABAGIq7j1FYlAKCULIqHHDtZC5OZCqNnRX0UuQ4JgOilgFsZBe8Okrvda8ZALLuQtjjBYmDZBViqhz1CWvEblSHVCpmAMeFQPbHqimLFm9rZASEoQk039MIUFTO2IQAwQzMCcYieaCL1xKxSHKugBDOXiPkYFoFjLRMOD9K8VII2",
-        // "EAANZBQwqZAZA3ABAK2mjtpltK8YtVtlzE2gakqruyIRASLL2SGd2rpIWZCbt71FtPqjg2ffVrTAwy0wq7qhMCWBjxoYlQL4a9v9Ie3Nz8mQDlTazkZA1OPiyEs5CNqm8UtZBmUfh401LqFIgrRFplaf3NI9v4khZA24QpQulLxZBilp1cdyrpG0e",
+          "EAANZBQwqZAZA3ABAMltfFvokLzwaMeKPZBOVYCwTS5fZCIVzyWWy5MD3cVwf6QBKeIiMEVjTiM0deux95Ra7NIgzkZBPpeeY5N9jKYep1XXwPehzARSu0d315UvEPErULcq4j6VqT1EUCfNhqZAzqvU2shxVfjQRew5kLAGZByJHK94U4PX9ZCRUZA",
       },
       method: "POST",
       json: {
