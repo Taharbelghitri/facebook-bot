@@ -40,10 +40,7 @@ function sendMessage(event) {
       url: "https://graph.facebook.com/v7.0/me/messages/",
       qs: {
         access_token:
-          // //  "EAAI0k6ZAYaRIBAKbNAsE3jH7guws8ytvhLQGqHSLdlzTA0HjDM6tTQZBxQr2sSAhllw6hTtTumGIie0sHZAOzKiiBwt3TLGuIsN8n7v0qVGxxRxBsow4ZAT71MSwRQGssClYS9ZCPNgOZA95H1VkY9hhfuhlNcdITniXGYRETusJa1KCZAJkW90AGuSEL61cGHkiGfH7ZBRZA5gZDZD",
-
-          //   "EAAI0k6ZAYaRIBADAgFFTuhHLndMlR0hltAN0b3mx2f1LLB74NVYoc8O7nINaTR4fXdsKdrQJx0AJbbj3LwShXogZBwVgVZBZCSw8nzRozgSZCIZC6NbXjiwo609LUYrmtrMflpSkCoH11FuWjLG5C2UHRAG3o4QTC69k3WNueOL738uQkDdfZBPZBJKOGp11bPtf98824QvM82OQx0wdkREbw1TugSdWZBpAZD",
-          "EAAI0k6ZAYaRIBAPrdyFrYxxpFvpGDGwy0QtKCwUfI62Q2MQH8ZBKxBeqnJ8jMXS4xJlafZBdaMCYWWi1F5dfowRVUyrYyx6ZAhsYZAwj6W6fQlwcUbUqQskhMPnVnFyC3HtoRPHmqnwBIr0zD0ux6ErwpXjNwstj7dsYm5rSzm3j9cmBmUjlFo9wEqmJuoZCyKZCpJwLNjNxQZDZD",
+          "EAAF33gpb80MBAB0eoAbMicPNQY4Keewe9ZAsTH2rSky7vf6nZACmkNpupw0ZAvhZBKJDEW0bBpMiby0NZBnnDoJ7dLWt3dQ9mGZACjow33S519jMCR0RKAzZAOmjGfrnrhP44F84h7zVp1vSupaktiCseRmgVqXZBf1FUvyqOZBTp3eNYIj9MJQsK2UHuxhIGe8BumXZBcVOU57AZDZD",
       },
       method: "POST",
       json: {
