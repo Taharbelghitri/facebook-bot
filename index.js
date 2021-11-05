@@ -51,7 +51,7 @@ function sendMessage(event) {
       method: "POST",
       json: {
         recipient: { id: sender },
-        message: { text: "hii" },
+        message: { text: text },
       },
     },
     function (error, response) {
