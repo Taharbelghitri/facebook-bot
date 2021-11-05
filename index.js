@@ -13,7 +13,7 @@ app.get("/webhook", (req, res) => {
 
 /* Handling all messenges */
 app.post("/webhook", (req, res) => {
-  console.log("req ... \n" + req.body);
+  console.log(req.body);
   if (req.body.object === "page") {
     console.log("it's page");
     req.body.entry.forEach((entry) => {
@@ -34,7 +34,6 @@ function sendMessage(event) {
   let sender = event.sender.id;
   let text = event.message.text;
   console.log("sender : " + sender);
-  console.log("send message");
 
   request(
     {
@@ -48,8 +47,8 @@ function sendMessage(event) {
       },
       method: "POST",
       json: {
-        recipient: { id: sender },
-        message: { text: text },
+        recipient: { id: "4815118071871943" },
+        message: { text: "hii" },
       },
     },
     function (error, response) {
