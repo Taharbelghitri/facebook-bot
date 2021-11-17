@@ -38,7 +38,7 @@ function sendMessage(event) {
   axios({
     method: "POST",
     url: "https://graph.facebook.com/v7.0/me/messages/",
-    qs: {
+    headers: {
       access_token: process.env.PAGE_TOKEN,
     },
     data: {
