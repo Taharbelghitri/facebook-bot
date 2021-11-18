@@ -38,30 +38,21 @@ app.post("/webhook", (req, res) => {
 function sendMessage(event) {
   let sender = event.sender.id;
   let text = event.message.text;
-
-  const messages = ["info", "teachers", "cours", "register"];
+  if (tags.includes(text)) sendFunction(sender, jsonData(tags.toString()));
+  db.findOne({ id: sender }, (err, data) => {
+    if (err || !data)
+      sendFunction(
+        sender,
+        "please try to register again or wait a second and send the message again\ntype info for more details"
+      );
+    else {
+    }
+  });
 
   console.log("id : " + sender);
+}
 
-  // axios({
-  //   method: "POST",
-  //   url: "https://graph.facebook.com/v7.0/me/messages/",
-  //   qs: {
-  //     access_token: process.env.PAGE_TOKEN,
-  //   },
-  //   data: {
-  //     recipient: { id: sender },
-  //     message: { text: text },
-  //   },
-  // })
-  //   .then((data) => {
-  //     if (data.body.error) console.log("Error: ", response.body.error);
-  //     else {
-  //       console.log("message sented ");
-  //     }
-  //   })
-  //   .catch((err) => console.log(err));
-
+const sendFunction = (sender, text) => {
   request(
     {
       url: "https://graph.facebook.com/v7.0/me/messages/",
@@ -71,7 +62,7 @@ function sendMessage(event) {
       method: "POST",
       json: {
         recipient: { id: sender },
-        message: { text: jsonData[tags.toString()] },
+        message: { text: text },
       },
     },
     function (error, response) {
@@ -82,28 +73,28 @@ function sendMessage(event) {
       }
     }
   );
-}
+};
 
-const message = "f";
-const data = ["infos", "register"];
-let fakeData = { name: "", number: 0 };
+// const message = "f";
+// const data = ["infos", "register"];
+// let fakeData = { name: "", number: 0 };
 
-data.forEach((element) => {
-  let pChars = 0;
-  element = element.split("");
-  element.forEach((item) => {
-    if (message.includes(item)) pChars++;
-  });
+// data.forEach((element) => {
+//   let pChars = 0;
+//   element = element.split("");
+//   element.forEach((item) => {
+//     if (message.includes(item)) pChars++;
+//   });
 
-  if (pChars > fakeData.number)
-    fakeData = { name: element.join(""), number: pChars };
-});
+//   if (pChars > fakeData.number)
+//     fakeData = { name: element.join(""), number: pChars };
+// });
 
-console.log("result ... " + fakeData.name);
+// console.log("result ... " + fakeData.name);
 
-console.log(tags);
+// console.log(tags);
 
-console.log(jsonData[tags.toString()]);
+// console.log(jsonData[tags.toString()]);
 
 app.listen(process.env.PORT || 5000, () =>
   console.log("servevr started at 5000")
