@@ -71,7 +71,7 @@ function sendMessage(event) {
       method: "POST",
       json: {
         recipient: { id: sender },
-        message: { text: tags.toString() },
+        message: { text: jsonData[tags.toString()] },
       },
     },
     function (error, response) {
