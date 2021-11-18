@@ -35,7 +35,7 @@ function sendMessage(event) {
   let text = event.message.text;
   const messages = ["info", "teachers", "cours", "register"];
 
-  console.log(sender);
+  console.log("id : " + sender);
 
   // axios({
   //   method: "POST",
