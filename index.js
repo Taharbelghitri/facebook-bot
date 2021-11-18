@@ -37,7 +37,7 @@ app.post("/webhook", (req, res) => {
 
 function sendMessage(event) {
   let sender = event.sender.id;
-  let text = event.message.text;
+  const text = suggest(event.message.text, tags);
   if (tags.includes(text)) sendFunction(sender, jsonData[tags.toString()]);
   else
     db.findOne({ id: sender }, (err, data) => {
@@ -49,8 +49,6 @@ function sendMessage(event) {
       else {
       }
     });
-
-  console.log("id : " + sender);
 }
 
 const sendFunction = (sender, text) => {
@@ -76,20 +74,20 @@ const sendFunction = (sender, text) => {
   );
 };
 
-// const message = "f";
-// const data = ["infos", "register"];
-// let fakeData = { name: "", number: 0 };
+const suggest = (message, data) => {
+  let fakeData = { name: "", number: 0 };
+  data.forEach((element) => {
+    let pChars = 0;
+    element = element.split("");
+    element.forEach((item) => {
+      if (message.includes(item)) pChars++;
+    });
 
-// data.forEach((element) => {
-//   let pChars = 0;
-//   element = element.split("");
-//   element.forEach((item) => {
-//     if (message.includes(item)) pChars++;
-//   });
-
-//   if (pChars > fakeData.number)
-//     fakeData = { name: element.join(""), number: pChars };
-// });
+    if (pChars > fakeData.number)
+      fakeData = { name: element.join(""), number: pChars };
+  });
+  return fakeData.name;
+};
 
 // console.log("result ... " + fakeData.name);
 
