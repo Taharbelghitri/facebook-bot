@@ -39,15 +39,16 @@ function sendMessage(event) {
   let sender = event.sender.id;
   let text = event.message.text;
   if (tags.includes(text)) sendFunction(sender, jsonData[tags.toString()]);
-  db.findOne({ id: sender }, (err, data) => {
-    if (err || !data)
-      sendFunction(
-        sender,
-        "please try to register again or wait a second and send the message again\ntype info for more details"
-      );
-    else {
-    }
-  });
+  else
+    db.findOne({ id: sender }, (err, data) => {
+      if (err || !data)
+        sendFunction(
+          sender,
+          "please try to register again or wait a second and send the message again\ntype info for more details"
+        );
+      else {
+      }
+    });
 
   console.log("id : " + sender);
 }
