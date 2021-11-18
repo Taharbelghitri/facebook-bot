@@ -38,7 +38,7 @@ app.post("/webhook", (req, res) => {
 function sendMessage(event) {
   let sender = event.sender.id;
   let text = event.message.text;
-  if (tags.includes(text)) sendFunction(sender, jsonData(tags.toString()));
+  if (tags.includes(text)) sendFunction(sender, jsonData[tags.toString()]);
   db.findOne({ id: sender }, (err, data) => {
     if (err || !data)
       sendFunction(
