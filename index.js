@@ -35,45 +35,47 @@ function sendMessage(event) {
   let text = event.message.text;
   const messages = ["info", "teachers", "cours", "register"];
 
-  axios({
-    method: "POST",
-    url: "https://graph.facebook.com/v7.0/me/messages/",
-    headers: {
-      access_token: process.env.PAGE_TOKEN,
-    },
-    data: {
-      recipient: { id: sender },
-      message: { text: text },
-    },
-  })
-    .then((data) => {
-      if (data.body.error) console.log("Error: ", response.body.error);
-      else {
-        console.log("message sented ");
-      }
-    })
-    .catch((err) => console.log(err));
+  console.log(sender);
 
-  // request(
-  //   {
-  //     url: "https://graph.facebook.com/v7.0/me/messages/",
-  //     qs: {
-  //       access_token: process.env.PAGE_TOKEN,
-  //     },
-  //     method: "POST",
-  //     json: {
-  //       recipient: { id: sender },
-  //       message: { text: text },
-  //     },
+  // axios({
+  //   method: "POST",
+  //   url: "https://graph.facebook.com/v7.0/me/messages/",
+  //   qs: {
+  //     access_token: process.env.PAGE_TOKEN,
   //   },
-  //   function (error, response) {
-  //     if (error) {
-  //       console.log("Error sending message: ", error);
-  //     } else if (response.body.error) {
-  //       console.log("Error: ", response.body.error);
+  //   data: {
+  //     recipient: { id: sender },
+  //     message: { text: text },
+  //   },
+  // })
+  //   .then((data) => {
+  //     if (data.body.error) console.log("Error: ", response.body.error);
+  //     else {
+  //       console.log("message sented ");
   //     }
-  //   }
-  // );
+  //   })
+  //   .catch((err) => console.log(err));
+
+  request(
+    {
+      url: "https://graph.facebook.com/v7.0/me/messages/",
+      qs: {
+        access_token: process.env.PAGE_TOKEN,
+      },
+      method: "POST",
+      json: {
+        recipient: { id: sender },
+        message: { text: text },
+      },
+    },
+    function (error, response) {
+      if (error) {
+        console.log("Error sending message: ", error);
+      } else if (response.body.error) {
+        console.log("Error: ", response.body.error);
+      }
+    }
+  );
 }
 
 app.listen(process.env.PORT || 5000, () =>
