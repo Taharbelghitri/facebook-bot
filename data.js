@@ -5,7 +5,8 @@ mongoose
   .connect(
     //"mongodb+srv://taharBelghitri:tahar.belghitri@cluster0.pqva6.gcp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
     // "mongodb+srv://tahartlm09261999:tahartlm09261999@cluster0.pqva6.gcp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority/test",
-    "mongodb://localhost:27017/test",
+    // "mongodb://localhost:27017/test",
+    "mongodb+srv://tahar:09261999@cluster0.fazbt.mongodb.net/test?retryWrites=true&w=majority",
     {
       bufferCommands: false,
       autoCreate: false,
@@ -33,7 +34,8 @@ const studentSchema = mongoose.Schema({
   famillyName: String,
   section: Number,
   phoneNumber: Number,
-  preOrder: String,
+  facebookId: String,
+  preOrder: { type: String, expires: "1h" },
 });
 
 const student = mongoose.model("student", studentSchema);
